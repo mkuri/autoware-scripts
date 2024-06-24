@@ -1,4 +1,5 @@
 import os
+import datetime
 
 def create_file(file_path, content=""):
     with open(file_path, 'w') as file:
@@ -15,11 +16,11 @@ def create_directory_structure(package_name):
     files_with_content = {
         os.path.join(package_name, 'config', f'{package_name}.param.yaml'): generate_param_yaml_content(),
         os.path.join(package_name, 'launch', f'{package_name}.launch.xml'): generate_launch_xml_content(package_name),
-        os.path.join(package_name, 'src', f'{package_name}.cpp'): "",
-        os.path.join(package_name, 'src', f'{package_name}.hpp'): "",
+        os.path.join(package_name, 'src', f'{package_name}.cpp'): generate_cpp_content(package_name),
+        os.path.join(package_name, 'src', f'{package_name}.hpp'): generate_hpp_content(package_name),
         os.path.join(package_name, 'CMakeLists.txt'): generate_cmakelists_txt_content(package_name),
         os.path.join(package_name, 'package.xml'): generate_package_xml_content(package_name),
-        os.path.join(package_name, 'README.md'): ""
+        os.path.join(package_name, 'README.md'): generate_readme_md_content(package_name)
     }
 
     # Create directories
@@ -40,6 +41,9 @@ def generate_package_xml_content(package_name):
 def camel_case(s):
     components = s.split('_')
     return ''.join(x.title() for x in components)
+
+def upper_case(s):
+    return s.upper()
 
 def generate_cmakelists_txt_content(package_name):
     template_path = os.path.join(os.path.dirname(__file__), 'templates', 'CMakeLists.txt')
@@ -62,3 +66,37 @@ def generate_launch_xml_content(package_name):
         template_content = file.read()
     
     return template_content.replace('{{package_name}}', package_name)
+
+def generate_cpp_content(package_name):
+    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'package_name.cpp')
+    with open(template_path, 'r') as file:
+        template_content = file.read()
+    
+    year = datetime.datetime.now().year
+    camel_case_name = camel_case(package_name)
+    content = template_content.replace('{{year}}', str(year))
+    content = content.replace('{{package_name}}', package_name)
+    content = content.replace('{{PackageName}}', camel_case_name)
+    return content
+
+def generate_hpp_content(package_name):
+    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'package_name.hpp')
+    with open(template_path, 'r') as file:
+        template_content = file.read()
+    
+    year = datetime.datetime.now().year
+    camel_case_name = camel_case(package_name)
+    upper_case_name = upper_case(package_name)
+    content = template_content.replace('{{year}}', str(year))
+    content = content.replace('{{package_name}}', package_name)
+    content = content.replace('{{PackageName}}', camel_case_name)
+    content = content.replace('{{PACKAGE_NAME}}', upper_case_name)
+    return content
+
+def generate_readme_md_content(package_name):
+    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'README.md')
+    with open(template_path, 'r') as file:
+        template_content = file.read()
+    
+    formatted_name = ' '.join(word.capitalize() for word in package_name.split('_'))
+    return template_content.replace('{{Package Name}}', formatted_name)
