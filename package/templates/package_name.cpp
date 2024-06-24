@@ -20,6 +20,22 @@ namespace {{package_name}}
 {{PackageName}}::{{PackageName}}(const rclcpp::NodeOptions & node_options)
 : Node("{{package_name}}", node_options)
 {
+  // Parameter
+
+  // Subscriber
+
+  // Publisher
+
+  // Service
+
+  // Client
+
+  // Timer
+
+  // State
+
+  // Diagnostics
+
 }
 
 }  // namespace {{package_name}}
