@@ -18,7 +18,7 @@ namespace {{package_name}}
 {
 
 {{PackageName}}::{{PackageName}}(const rclcpp::NodeOptions & node_options)
-: Node("{{package_name}}", node_options), updater_(this)
+: Node("{{package_name}}", node_options)
 {
 }
 
