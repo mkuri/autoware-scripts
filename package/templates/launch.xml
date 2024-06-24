@@ -1,0 +1,7 @@
+<launch>
+  <arg name="{{package_name}}_param_path" default="$(find-pkg-share {{package_name}})/config/{{package_name}}.param.yaml"/>
+
+  <node pkg="{{package_name}}" exec="{{package_name}}" name="{{package_name}}" output="screen">
+    <param from="$(var {{package_name}}_param_path)"/>
+  </node>
+</launch>
