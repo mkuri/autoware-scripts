@@ -15,6 +15,7 @@
 #ifndef {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
 #define {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
 
+// include
 #include <rclcpp/rclcpp.hpp>
 
 namespace {{package_name}}
@@ -27,6 +28,22 @@ public:
   ~{{PackageName}}() = default;
 
 private:
+  // Parameter
+
+  // Subscriber
+
+  // Publisher
+
+  // Service
+
+  // Client
+
+  // Timer
+
+  // State
+
+  // Diagnostics
+
 };
 }  // namespace {{package_name}}
 
