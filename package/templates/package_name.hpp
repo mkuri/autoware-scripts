@@ -25,7 +25,6 @@ class {{PackageName}} : public rclcpp::Node
 {
 public:
   explicit {{PackageName}}(const rclcpp::NodeOptions & node_options);
-  ~{{PackageName}}() = default;
 
 private:
   // Parameter
@@ -48,3 +47,4 @@ private:
 }  // namespace {{package_name}}
 
 #endif  // {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
+
