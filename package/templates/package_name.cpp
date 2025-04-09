@@ -41,4 +41,4 @@ namespace {{package_name}}
 }  // namespace {{package_name}}
 
 #include <rclcpp_components/register_node_macro.hpp>
-RCLCPP_COMPONENTS_REGISTER_NODE({{package_name}}}::{{PackageName}})
+RCLCPP_COMPONENTS_REGISTER_NODE({{package_name}}::{{PackageName}})
