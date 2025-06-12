@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
-#define {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
+#ifndef {{PACKAGE_NAME}}_HPP_
+#define {{PACKAGE_NAME}}_HPP_
 
 // include
 #include <rclcpp/rclcpp.hpp>
 
-namespace {{package_name}}
+namespace autoware::{{package_name}}
 {
 
 class {{PackageName}} : public rclcpp::Node
@@ -44,7 +44,7 @@ private:
   // Diagnostics
 
 };
-}  // namespace {{package_name}}
+}  // namespace autoware::{{package_name}}
 
-#endif  // {{PACKAGE_NAME}}__{{PACKAGE_NAME}}_HPP_
+#endif  // {{PACKAGE_NAME}}_HPP_
 

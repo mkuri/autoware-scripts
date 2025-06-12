@@ -1,7 +1,7 @@
 <launch>
-  <arg name="{{package_name}}_param_path" default="$(find-pkg-share {{package_name}})/config/{{package_name}}.param.yaml"/>
+  <arg name="{{package_name}}_param_path" default="$(find-pkg-share autoware_{{package_name}})/config/{{package_name}}.param.yaml"/>
 
-  <node pkg="{{package_name}}" exec="{{package_name}}_node" name="{{package_name}}" output="screen">
+  <node pkg="autoware_{{package_name}}" exec="autoware_{{package_name}}_node" name="autoware_{{package_name}}" output="screen">
     <param from="$(var {{package_name}}_param_path)"/>
   </node>
 </launch>

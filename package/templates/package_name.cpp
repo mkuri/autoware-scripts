@@ -14,7 +14,7 @@
 
 #include "{{package_name}}.hpp"
 
-namespace {{package_name}}
+namespace autoware::{{package_name}}
 {
 
 {{PackageName}}::{{PackageName}}(const rclcpp::NodeOptions & node_options)
@@ -38,7 +38,7 @@ namespace {{package_name}}
 
 }
 
-}  // namespace {{package_name}}
+}  // namespace autoware::{{package_name}}
 
 #include <rclcpp_components/register_node_macro.hpp>
-RCLCPP_COMPONENTS_REGISTER_NODE({{package_name}}::{{PackageName}})
+RCLCPP_COMPONENTS_REGISTER_NODE(autoware::{{package_name}}::{{PackageName}})
